@@ -82,7 +82,7 @@ function renderRepos(repos) {
 
 // Initialize GitHub repositories
 async function initRepos() {
-  const loading = document.getElementById('repo-loading');
+  const loading = document.getElementById('repos-loading');
   const grid = document.getElementById('repo-grid');
 
   try {

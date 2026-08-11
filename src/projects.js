@@ -38,11 +38,11 @@ const projects = [
   },
 
   {
-    title: 'Joke Generator',
+    title: 'Interactive Portfolio',
     tech: 'javascript',
     week: 6,
-    desc: 'Built an interactive joke generator using JavaScript to dynamically fetch and display jokes for the user.',
-    link: 'https://github.com/Masuma-T/Joke-Generator'
+    desc: 'A portfolio project with dynamic project cards, JavaScript rendering, filtering, and live search.',
+    link: 'https://masuma-t.github.io/hello-web/'
   }
 
 ];
