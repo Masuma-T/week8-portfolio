@@ -35,8 +35,19 @@ const projects = [
     week: 5,
     desc: 'Built an interactive quiz application using JavaScript to handle questions, user interactions, scoring, and dynamic updates.',
     link: 'https://masuma-t.github.io/quiz-app/'
+  },
+
+  {
+    title: 'Joke Generator',
+    tech: 'javascript',
+    week: 6,
+    desc: 'Built an interactive joke generator using JavaScript to dynamically fetch and display jokes for the user.',
+    link: 'https://github.com/Masuma-T/Joke-Generator'
   }
+
 ];
+
+
 
 function projectCard({ title, tech, week, desc, link }) {
   return `
