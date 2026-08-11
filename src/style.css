@@ -676,3 +676,283 @@ h3 {
     }
 
 }
+
+/* ===========================
+   Dark Mode
+=========================== */
+
+/* Dark mode toggle */
+.theme-toggle {
+    margin-left: 1rem;
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    background: #2563eb;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #3b82f6;
+    transform: translateY(-1px);
+}
+
+
+/* ===========================
+   Main Background
+=========================== */
+
+body.dark-mode {
+    background-color: #121826;
+    color: #e5e7eb;
+}
+
+
+/* ===========================
+   Navigation
+=========================== */
+
+body.dark-mode .navbar {
+    background: #182033;
+    border-bottom: 1px solid #2d3748;
+}
+
+body.dark-mode .navbar a {
+    color: #e5e7eb;
+}
+
+body.dark-mode .navbar a:hover {
+    color: #60a5fa;
+}
+
+
+/* ===========================
+   General Text
+=========================== */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #f8fafc;
+}
+
+body.dark-mode p {
+    color: #cbd5e1;
+}
+
+
+/* ===========================
+   Cards
+=========================== */
+
+body.dark-mode .content-card,
+body.dark-mode .project-card,
+body.dark-mode .repo-card {
+    background: #1e293b;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .content-card:hover,
+body.dark-mode .project-card:hover,
+body.dark-mode .repo-card:hover {
+    background: #243247;
+    border-color: #475569;
+    transform: translateY(-3px);
+}
+
+
+/* ===========================
+   Project Section
+=========================== */
+
+body.dark-mode .project-card h3,
+body.dark-mode .repo-card h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .project-card p,
+body.dark-mode .repo-card p {
+    color: #cbd5e1;
+}
+
+
+/* ===========================
+   Links
+=========================== */
+
+body.dark-mode a {
+    color: #60a5fa;
+}
+
+body.dark-mode a:hover {
+    color: #93c5fd;
+}
+
+
+/* ===========================
+   Buttons
+=========================== */
+
+body.dark-mode button {
+    color: #f8fafc;
+}
+
+body.dark-mode .filter-btn {
+    background: #1e293b;
+    color: #cbd5e1;
+    border: 1px solid #475569;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .filter-btn:hover {
+    background: #29384d;
+    color: #ffffff;
+    border-color: #64748b;
+}
+
+body.dark-mode .filter-btn.active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+
+/* ===========================
+   Search
+=========================== */
+
+body.dark-mode .search-input {
+    background: #1e293b;
+    color: #f8fafc;
+    border: 1px solid #475569;
+}
+
+body.dark-mode .search-input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+body.dark-mode .search-input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* ===========================
+   Plus / View More Button
+=========================== */
+
+/* Makes the + button stand out in dark mode */
+body.dark-mode .view-more,
+body.dark-mode .plus-button,
+body.dark-mode .more-btn {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #3b82f6;
+}
+
+body.dark-mode .view-more:hover,
+body.dark-mode .plus-button:hover,
+body.dark-mode .more-btn:hover {
+    background: #3b82f6;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+
+/* ===========================
+   Personal Portfolio Section
+=========================== */
+
+body.dark-mode .personal-portfolio,
+body.dark-mode .portfolio-card {
+    background: #1e293b;
+    color: #e5e7eb;
+    border-color: #334155;
+}
+
+body.dark-mode .personal-portfolio h2,
+body.dark-mode .personal-portfolio h3,
+body.dark-mode .portfolio-card h2,
+body.dark-mode .portfolio-card h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .personal-portfolio p,
+body.dark-mode .portfolio-card p {
+    color: #cbd5e1;
+}
+
+
+/* ===========================
+   Tags / Skills
+=========================== */
+
+body.dark-mode .tag,
+body.dark-mode .skill,
+body.dark-mode .tech-tag {
+    background: #263449;
+    color: #bfdbfe;
+    border-color: #3b4b63;
+}
+
+
+/* ===========================
+   Footer
+=========================== */
+
+body.dark-mode .site-footer {
+    background: #182033;
+    color: #cbd5e1;
+    border-top: 1px solid #2d3748;
+}
+
+body.dark-mode .site-footer a {
+    color: #60a5fa;
+}
+
+body.dark-mode .site-footer a:hover {
+    color: #93c5fd;
+}
+
+
+/* ===========================
+   Images / Icons
+=========================== */
+
+body.dark-mode img {
+    border-color: #334155;
+}
+
+
+/* ===========================
+   Smooth Dark Mode Transition
+=========================== */
+
+body,
+.navbar,
+.content-card,
+.project-card,
+.repo-card,
+.filter-btn,
+.search-input,
+.site-footer {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.tech-tag.jupyter-notebook {
+    background-color: hsl(230, 60%, 50%);
+}

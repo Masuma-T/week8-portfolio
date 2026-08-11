@@ -18,12 +18,33 @@ async function fetchRepos(username) {
 
 // Create one GitHub repository card
 function repoCard(repo) {
-  const description =
-    repo.description || 'No description available.';
+  // Only show a description if the repository has one
+  const description = repo.description
+    ? `<p class="card-desc">${repo.description}</p>`
+    : '';
 
-   const language = repo.language
-   ? `<span class="tech-tag ${repo.language.toLowerCase()}">${repo.language}</span>`
-   : '';
+  // Use GitHub's detected language
+  let technology = repo.language;
+
+  // Override the language for these two projects
+  const repoName = repo.name.toLowerCase();
+
+  if (
+    repoName.includes('historical-stock') ||
+    repoName.includes('rooftop-solar')
+  ) {
+    technology = 'Jupyter Notebook';
+  }
+
+  // Keep the original language class so your existing CSS works
+  const language = technology
+    ? `<span class="tech-tag ${technology.toLowerCase().replace(/\s+/g, '-')}">${technology}</span>`
+    : '';
+
+  // Only show stars when the repository has stars
+  const stars = repo.stargazers_count > 0
+    ? `<span class="repo-stars">⭐ ${repo.stargazers_count}</span>`
+    : '';
 
   return `
     <article class="project-card repo-card">
@@ -32,17 +53,13 @@ function repoCard(repo) {
         ${repo.name}
       </h3>
 
-      <p class="card-desc">
-        ${description}
-      </p>
+      ${description}
 
       <div class="card-footer">
 
         <div>
           ${language}
-          <span class="repo-stars">
-            ⭐ ${repo.stargazers_count}
-          </span>
+          ${stars}
         </div>
 
         <a
@@ -58,7 +75,6 @@ function repoCard(repo) {
     </article>
   `;
 }
-
 
 // Render repositories
 function renderRepos(repos) {
