@@ -4,50 +4,13 @@ import './style.css';
 
 import {
   projects,
-  renderProjects
+  renderProjects,
+  getFilteredProjects
 } from './projects.js';
 
 import {
   initRepos
 } from './api.js';
-
-
-// ==========================================
-// PROJECT FILTERING
-// ==========================================
-
-function getFilteredProjects() {
-
-  const activeBtn =
-    document.querySelector('.filter-btn.active');
-
-  const activeTech =
-    activeBtn
-      ? activeBtn.dataset.filter
-      : 'all';
-
-  const searchInput =
-    document.getElementById('search-input');
-
-  const searchTerm =
-    searchInput
-      ? searchInput.value.toLowerCase().trim()
-      : '';
-
-  return projects.filter(project => {
-
-    const matchesTech =
-      activeTech === 'all' ||
-      project.tech === activeTech;
-
-    const matchesSearch =
-      searchTerm === '' ||
-      project.title.toLowerCase().includes(searchTerm) ||
-      project.desc.toLowerCase().includes(searchTerm);
-
-    return matchesTech && matchesSearch;
-  });
-}
 
 
 // ==========================================
