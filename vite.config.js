@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/hello-web/'
+  base: '/week8-portfolio/'
 });
