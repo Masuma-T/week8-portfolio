@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Masuma Tahir | Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <script type="module" crossorigin src="/week8-portfolio/assets/index-BSCbhErr.js"></script>
+  <link rel="stylesheet" crossorigin href="/week8-portfolio/assets/index-BCVE27yE.css">
+</head>
+
+<body id="top">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#top" class="logo">Masuma T.</a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1 class="hero-title">Masuma Tahir</h1>
+
+        <p class="hero-tagline">
+            Aspiring Web Developer | Engineering Thinker | Tech & Data Enthusiast
+        </p>
+    </header>
+
+    <main class="main-content">
+
+        <!-- About Me -->
+        <section id="about" class="content-card">
+            <h2>About Me</h2>
+
+            <p>
+                I am a Mechanical Engineering graduate with a growing passion for
+                technology, web development, and data analytics.
+            </p>
+
+            <p>
+                I have completed programs including the IDRF Web + Data Bootcamp,
+                IBM Data Analytics training, and Microsoft Azure AZ-900 certification.
+                My goal is to combine engineering, technology, and creativity to
+                build meaningful digital solutions.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="content-card">
+            <h2>Skills & Interests</h2>
+
+            <ul class="skills-list">
+                <li>HTML & CSS</li>
+                <li>Web Development</li>
+                <li>Data Analytics</li>
+                <li>Project Management</li>
+                <li>Engineering Problem Solving</li>
+                <li>Technology & Innovation</li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="content-card">
+
+            <h2>Projects</h2>
+
+            <!-- Search and Filter Controls -->
+            <div class="project-controls">
+
+                <div class="filter-group">
+
+                    <button
+                        type="button"
+                        class="filter-btn active"
+                        data-filter="all">
+                        All
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="html">
+                        HTML
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="css">
+                        CSS
+                    </button>
+
+                    <button
+                        type="button"
+                        class="filter-btn"
+                        data-filter="javascript">
+                        JavaScript
+                    </button>
+
+                </div>
+
+                <!-- Search -->
+                <div class="search-wrapper">
+
+                    <label
+                        for="search-input"
+                        class="visually-hidden">
+                        Search projects
+                    </label>
+
+                    <input
+                        type="search"
+                        id="search-input"
+                        class="search-input"
+                        placeholder="Search projects..."
+                        autocomplete="off">
+
+                </div>
+
+                <!-- Results Count -->
+                <p
+                    id="results-count"
+                    class="results-count">
+                    Showing 0 of 0 projects
+                </p>
+
+            </div>
+
+            <!-- JavaScript will create project cards here -->
+            <div
+                id="project-grid"
+                class="projects-grid">
+            </div>
+
+        </section>
+
+                <!-- GitHub Repositories -->
+        <section id="github-repos" class="content-card">
+            <h2>GitHub Repositories</h2>
+
+            <p>
+                Explore my latest projects and repositories directly from GitHub.
+            </p>
+
+            <!-- Loading indicator -->
+            <p id="repos-loading">Loading GitHub repositories...</p>
+
+            <!-- JavaScript will render repositories here -->
+            <div id="repo-grid" class="repo-grid"></div>
+        </section>
+
+        <!-- Education -->
+        <section class="content-card">
+            <h2>Education & Certifications</h2>
+
+            <table class="education-table">
+
+                <tr>
+                    <th>Program</th>
+                    <th>Institution</th>
+                </tr>
+
+                <tr>
+                    <td>Mechanical Engineering</td>
+                    <td>University Program</td>
+                </tr>
+
+                <tr>
+                    <td>IDRF Web + Data Bootcamp</td>
+                    <td>IDRF</td>
+                </tr>
+
+                <tr>
+                    <td>IBM Data Analytics</td>
+                    <td>IBM</td>
+                </tr>
+
+                <tr>
+                    <td>Microsoft Azure AZ-900</td>
+                    <td>Microsoft</td>
+                </tr>
+
+            </table>
+        </section>
+
+        <!-- Profile Picture -->
+        <section class="content-card">
+
+            <h2>Profile Picture</h2>
+
+            <img
+                src="/week8-portfolio/assets/profile-0f9_g3FB.jpg"
+                alt="Profile photo of Masuma Tahir"
+                class="profile-image">
+
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="content-card">
+
+            <h2>Connect With Me</h2>
+
+            <div class="links-container">
+
+                <a
+                    href="https://github.com/Masuma-T"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-link">
+                    GitHub
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/masoomatahir/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="social-link">
+                    LinkedIn
+                </a>
+
+                <a
+                    href="mailto:masuamt00@gmail.com"
+                    class="social-link">
+                    Email
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Masuma Tahir</p>
+    </footer>
+
+    <!-- Week 6 JavaScript -->
+
+</body>
+
+</html>
