@@ -97,34 +97,53 @@ function renderRepos(repos) {
 
 
 // Initialize GitHub repositories
+// Initialize GitHub repositories
 async function initRepos() {
   const loading = document.getElementById('repos-loading');
   const grid = document.getElementById('repo-grid');
 
-  try {
-    if (loading) {
-      loading.classList.remove('hidden');
-    }
+  // Show loading state while GitHub data is being fetched
+  if (loading) {
+    loading.classList.add('show');
+  }
 
+  try {
     const repos = await fetchRepos('Masuma-T');
+
+    // Hide loading state after successful fetch
+    if (loading) {
+      loading.classList.remove('show');
+    }
 
     renderRepos(repos);
 
   } catch (error) {
     console.error('GitHub API error:', error);
 
+    // Hide loading state if the request fails
+    if (loading) {
+      loading.classList.remove('show');
+    }
+
     if (grid) {
       grid.innerHTML = `
         <div class="empty-state">
           <p>Unable to load GitHub repositories.</p>
-          <p>Please try again later.</p>
+
+          <button
+            class="retry-btn"
+            id="retry-repos"
+            type="button">
+            Try Again
+          </button>
         </div>
       `;
-    }
 
-  } finally {
-    if (loading) {
-      loading.classList.add('hidden');
+      const retryButton = document.getElementById('retry-repos');
+
+      if (retryButton) {
+        retryButton.addEventListener('click', initRepos);
+      }
     }
   }
 }

@@ -19,8 +19,6 @@ import {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  console.log('Main.js loaded');
-  console.log('Projects:', projects);
 
   // Show all projects
   renderProjects(projects);
@@ -107,3 +105,53 @@ if (themeToggle) {
 }
 
 });
+
+function initTypingEffect() {
+    const typingText = document.querySelector(".typing-text");
+
+    if (!typingText) return;
+
+    const words = [
+        "Engineer",
+        "Data Enthusiast",
+        "Web Developer"
+    ];
+
+    let wordIndex = 0;
+    let characterIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentWord = words[wordIndex];
+
+        if (isDeleting) {
+            characterIndex--;
+        } else {
+            characterIndex++;
+        }
+
+        typingText.textContent = currentWord.substring(
+            0,
+            characterIndex
+        );
+
+        let speed = isDeleting ? 60 : 100;
+
+        if (!isDeleting && characterIndex === currentWord.length) {
+            speed = 1500;
+            isDeleting = true;
+        }
+
+        if (isDeleting && characterIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            speed = 400;
+        }
+
+        setTimeout(type, speed);
+    }
+
+    type();
+}
+
+initTypingEffect();

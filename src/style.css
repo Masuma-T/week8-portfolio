@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -20,6 +24,7 @@ img {
     height: auto;
 }
 
+
 /* =========================
    CSS Variables
 ========================= */
@@ -29,8 +34,13 @@ img {
     --secondary-color: hsl(210, 40%, 96%);
     --accent-color: hsl(200, 85%, 45%);
     --text-color: hsl(220, 20%, 15%);
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --muted-color: hsl(220, 10%, 40%);
+    --border-color: hsl(220, 15%, 80%);
+
+    --card-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
 
 /* =========================
    Body
@@ -38,12 +48,22 @@ img {
 
 body {
     font-family: 'Poppins', sans-serif;
+
     background-color: var(--secondary-color);
+
     color: var(--text-color);
+
     line-height: 1.6;
+
     font-size: 1rem;
+
     padding: 20px;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
+
 
 /* =========================
    Navigation
@@ -51,77 +71,328 @@ body {
 
 .navbar {
     background-color: white;
+
     padding: 20px;
+
     border-radius: 16px;
+
     box-shadow: var(--card-shadow);
-    margin-bottom: 30px;
+
+    margin-bottom: 40px;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .navbar-container {
     width: 90%;
+
     max-width: 1200px;
+
     margin: 0 auto;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     gap: 15px;
 }
 
 .logo {
     color: var(--primary-color);
+
     text-decoration: none;
+
     font-size: 1.5rem;
+
     font-weight: 700;
+
+    transition: color 0.25s ease;
 }
 
 .logo:hover {
     color: var(--accent-color);
 }
+
 .nav-links {
     display: flex;
+
     flex-direction: column;
+
     gap: 10px;
 }
 
 .nav-links a {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     min-height: 44px;
+
     padding: 10px 14px;
 
     text-decoration: none;
+
     color: var(--primary-color);
+
     font-weight: 600;
 
-    transition: 0.25s ease;
+    transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
     color: var(--accent-color);
 }
 
+
+/* =========================
+   Theme Toggle
+========================= */
+
+.theme-toggle {
+    margin-left: 1rem;
+
+    padding: 0.5rem 0.8rem;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 1.1rem;
+
+    background: #2563eb;
+
+    color: white;
+
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: #3b82f6;
+
+    transform: translateY(-1px);
+}
+
+
 /* =========================
    Hero
 ========================= */
 
 .hero-section {
+    margin-bottom: 70px;
+
+    padding: 60px 20px 30px;
+
     text-align: center;
-    margin-bottom: 40px;
+}
+
+.hero-content {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 40px;
+}
+
+.hero-text {
+    text-align: center;
+
+    max-width: 850px;
+}
+
+.hero-intro {
+    color: var(--accent-color);
+
+    font-size: 1.1rem;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
 }
 
 .hero-title {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(3.5rem, 9vw, 7rem);
+
+    line-height: 1;
+
     color: var(--primary-color);
+
+    font-weight: 700;
+
+    letter-spacing: -0.04em;
 }
 
-.hero-tagline {
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    margin-top: 10px;
+
+/* =========================
+   Typing Effect
+========================= */
+
+.hero-role {
+    margin-top: 18px;
+
+    min-height: 2rem;
+
     color: var(--accent-color);
+
+    font-size: clamp(1rem, 2vw, 1.35rem);
+
+    font-weight: 600;
+
+    letter-spacing: 0.02em;
 }
+
+.typing-text {
+    display: inline;
+}
+
+.typing-cursor {
+    display: inline-block;
+
+    margin-left: 2px;
+
+    color: var(--accent-color);
+
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+
+    50% {
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   Hero Tagline
+========================= */
+
+.hero-tagline {
+    max-width: 650px;
+
+    margin: 20px auto 0;
+
+    font-size: clamp(1rem, 2vw, 1.15rem);
+
+    color: var(--muted-color);
+}
+
+
+/* =========================
+   Hero Buttons
+========================= */
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.hero-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: var(--accent-color);
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+.secondary-button {
+    background-color: transparent;
+
+    color: var(--primary-color);
+
+    border: 2px solid var(--primary-color);
+}
+
+.secondary-button:hover {
+    background-color: var(--primary-color);
+
+    color: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   Hero Image
+========================= */
+
+.hero-image {
+    display: flex;
+
+    justify-content: center;
+}
+
+.hero-image .profile-image {
+    width: 220px;
+
+    height: 220px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-top: 0;
+
+    border: 5px solid white;
+
+    box-shadow: var(--card-shadow);
+
+    transition: transform 0.25s ease;
+}
+
+.hero-image .profile-image:hover {
+    transform: scale(1.04);
+}
+
 
 /* =========================
    Main Container
@@ -129,9 +400,12 @@ body {
 
 .main-content {
     width: 90%;
+
     max-width: 1200px;
+
     margin: 0 auto;
 }
+
 
 /* =========================
    Cards
@@ -139,39 +413,97 @@ body {
 
 .content-card {
     background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
+
+    padding: 30px;
+
+    margin-bottom: 30px;
 
     border-radius: 16px;
+
     box-shadow: var(--card-shadow);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
+
 /* =========================
-   Headings
+   Section Headings
 ========================= */
 
+.section-heading {
+    margin-bottom: 25px;
+}
+
+.section-label {
+    color: var(--accent-color);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 5px;
+}
+
 h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: 15px;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+
+    margin-bottom: 10px;
+
     color: var(--primary-color);
+
+    line-height: 1.2;
 }
 
 h3 {
     margin-bottom: 10px;
+
     color: var(--primary-color);
 }
 
+
+/* =========================
+   About
+========================= */
+
+.about-content {
+    max-width: 1000px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
 /* =========================
    Skills
 ========================= */
 
 .skills-list {
-    padding-left: 20px;
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    list-style: none;
 }
 
 .skills-list li {
-    margin-bottom: 8px;
+    padding: 12px 16px;
+
+    background-color: var(--secondary-color);
+
+    border-radius: 10px;
+
+    border-left: 4px solid var(--accent-color);
 }
+
 
 /* =========================
    Projects
@@ -179,261 +511,54 @@ h3 {
 
 .projects-grid {
     display: grid;
+
     grid-template-columns: 1fr;
+
     gap: 20px;
 }
 
 .project-card {
     background-color: var(--secondary-color);
-    padding: 20px;
-    border-radius: 12px;
-    transition: 0.25s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
-/* =========================
-   Education
-========================= */
-
-.education-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.education-table th,
-.education-table td {
-    border: 1px solid hsl(0, 0%, 80%);
-    padding: 12px;
-    text-align: left;
-    font-size: 1rem;
-}
-
-.education-table th {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* =========================
-   Profile
-========================= */
-
-.profile-image {
-    width: 250px;
-    border-radius: 20px;
-    margin-top: 15px;
-    transition: 0.25s ease;
-}
-
-.profile-image:hover {
-    transform: scale(1.05);
-}
-
-/* =========================
-   Social Links
-========================= */
-
-.links-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 44px;
-    padding: 12px 20px;
-
-    background-color: var(--accent-color);
-    color: white;
-
-    text-decoration: none;
-    border-radius: 10px;
-
-    transition: all 0.25s ease;
-}
-
-.social-link:hover {
-    transform: translateY(-3px);
-    background-color: hsl(200, 85%, 35%);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
-/* =========================
-   Footer
-========================= */
-
-.site-footer {
-    text-align: center;
-    margin-top: 40px;
-    color: hsl(220, 10%, 40%);
-}
-
-/* =========================
-   Tablet
-========================= */
-
-@media (min-width: 768px) {
-
-    .navbar-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .nav-links {
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .project-card:first-child {
-        grid-column: span 2;
-    }
-}
-
-/* =========================
-   Desktop
-========================= */
-
-@media (min-width: 1024px) {
-
-    .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .project-card:first-child {
-        grid-column: span 1;
-    }
-
-    .hero-title {
-        font-size: clamp(3rem, 4vw, 5rem);
-    }
-
-    .content-card {
-        padding: 35px;
-    }
-}
-
-/* =========================
-   Week 6 - JavaScript Project Controls
-========================= */
-
-.project-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.filter-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.filter-btn {
-    min-height: 44px;
-    padding: 10px 16px;
-
-    border: 1px solid hsl(220, 15%, 80%);
-    border-radius: 999px;
-
-    background-color: white;
-    color: var(--primary-color);
-
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-
-    cursor: pointer;
-    transition: all 0.25s ease;
-}
-
-.filter-btn:hover {
-    color: var(--accent-color);
-    border-color: var(--accent-color);
-}
-
-.filter-btn.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: white;
-}
-
-.search-wrapper {
-    flex: 1;
-    min-width: 200px;
-}
-
-.search-input {
-    width: 100%;
-    min-height: 44px;
-
-    padding: 10px 14px;
-
-    border: 1px solid hsl(220, 15%, 80%);
-    border-radius: 10px;
-
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-
-    outline: none;
-}
-
-.search-input:focus {
-    border-color: var(--accent-color);
-}
-
-.results-count {
-    width: 100%;
-    font-size: 0.9rem;
-    color: hsl(220, 10%, 40%);
-}
-
-/* JavaScript-generated project cards */
-
-.project-card {
-    background-color: var(--secondary-color);
 
     padding: 20px;
+
     border-radius: 12px;
 
     display: flex;
+
     flex-direction: column;
+
     gap: 10px;
 
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.3s ease;
 
     animation: project-card-in 0.3s ease both;
 }
 
 .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 @keyframes project-card-in {
+
     from {
         opacity: 0;
+
         transform: translateY(8px);
     }
 
     to {
         opacity: 1;
+
         transform: translateY(0);
     }
+
 }
 
 .week-badge {
@@ -446,30 +571,42 @@ h3 {
     border-radius: 999px;
 
     background-color: white;
+
     color: var(--primary-color);
 
     font-size: 0.75rem;
+
     font-weight: 600;
 }
 
 .card-title {
     color: var(--primary-color);
+
     font-size: 1.15rem;
 }
 
 .card-desc {
     flex: 1;
+
     font-size: 0.95rem;
 }
 
 .card-footer {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     margin-top: 10px;
+
     gap: 10px;
 }
+
+
+/* =========================
+   Technology Tags
+========================= */
 
 .tech-tag {
     display: inline-block;
@@ -481,7 +618,9 @@ h3 {
     color: white;
 
     font-size: 0.75rem;
+
     font-weight: 600;
+
     text-transform: uppercase;
 }
 
@@ -497,13 +636,24 @@ h3 {
     background-color: hsl(45, 85%, 40%);
 }
 
+.tech-tag.jupyter-notebook {
+    background-color: #d97706;
+}
+
+
+/* =========================
+   Project Links
+========================= */
+
 .card-link {
     display: inline-flex;
+
     align-items: center;
 
     min-height: 44px;
 
     color: var(--accent-color);
+
     font-weight: 600;
 
     text-decoration: none;
@@ -513,74 +663,120 @@ h3 {
     color: var(--primary-color);
 }
 
-.empty-state {
-    grid-column: 1 / -1;
 
-    text-align: center;
+/* =========================
+   Project Controls
+========================= */
 
-    padding: 40px 20px;
+.project-controls {
+    display: flex;
 
-    color: hsl(220, 10%, 40%);
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    align-items: center;
+
+    margin-bottom: 25px;
 }
 
-.visually-hidden {
-    position: absolute;
+.filter-group {
+    display: flex;
 
-    width: 1px;
-    height: 1px;
+    flex-wrap: wrap;
 
-    padding: 0;
-    margin: -1px;
-
-    overflow: hidden;
-
-    clip: rect(0, 0, 0, 0);
-
-    white-space: nowrap;
-
-    border: 0;
+    gap: 8px;
 }
 
-/* Week 6 responsive controls */
+.filter-btn {
+    min-height: 44px;
 
-@media (min-width: 768px) {
-    .project-controls {
-        align-items: center;
-    }
+    padding: 10px 16px;
 
-    .results-count {
-        width: auto;
-        margin-left: auto;
-    }
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    background-color: white;
+
+    color: var(--primary-color);
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
 }
 
-@media (max-width: 767px) {
-    .project-controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
+.filter-btn:hover {
+    color: var(--accent-color);
 
-    .filter-group {
-        width: 100%;
-    }
-
-    .filter-btn {
-        flex: 1;
-    }
-
-    .search-wrapper {
-        width: 100%;
-    }
+    border-color: var(--accent-color);
 }
 
-/* =============================================================
-   WEEK 7 — GITHUB REPOSITORIES
-   ============================================================= */
+.filter-btn.active {
+    background-color: var(--primary-color);
+
+    border-color: var(--primary-color);
+
+    color: white;
+}
+
+.search-wrapper {
+    flex: 1;
+
+    min-width: 200px;
+}
+
+.search-input {
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 10px 14px;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 10px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 1rem;
+
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--accent-color);
+
+    box-shadow:
+        0 0 0 3px rgba(0, 150, 200, 0.1);
+}
+
+.results-count {
+    width: 100%;
+
+    font-size: 0.9rem;
+
+    color: var(--muted-color);
+}
+
+
+/* =========================
+   GitHub Repositories
+========================= */
 
 #repos-loading {
     display: none;
+
     text-align: center;
-    color: var(--color-muted);
+
+    color: var(--muted-color);
+
     margin: 20px 0;
 }
 
@@ -590,19 +786,27 @@ h3 {
 
 .repo-grid {
     display: grid;
+
     grid-template-columns: 1fr;
+
     gap: 20px;
+
     margin-top: 25px;
 }
 
 .repo-card {
     background-color: white;
-    border: 1.5px solid var(--color-border);
+
+    border: 1px solid var(--border-color);
+
     border-radius: 14px;
+
     padding: 22px 24px 20px;
 
     display: flex;
+
     flex-direction: column;
+
     gap: 12px;
 
     box-shadow: var(--card-shadow);
@@ -615,32 +819,42 @@ h3 {
 
 .repo-card:hover {
     transform: translateY(-4px);
+
     border-color: var(--accent-color);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .repo-title {
     color: var(--primary-color);
+
     font-size: 1.1rem;
+
     word-break: break-word;
 }
 
 .repo-description {
     color: var(--text-color);
+
     font-size: 0.95rem;
+
     flex: 1;
 }
 
-.repo-footer {
+.repo-meta {
     display: flex;
-    flex-wrap: wrap;
+
     align-items: center;
+
+    flex-wrap: wrap;
+
     gap: 10px;
-    margin-top: 5px;
 }
 
 .repo-stars {
     font-size: 0.9rem;
+
     color: var(--text-color);
 }
 
@@ -648,10 +862,10 @@ h3 {
     margin-left: auto;
 
     color: var(--primary-color);
-    font-weight: 600;
-    text-decoration: none;
 
-    transition: color 0.2s ease;
+    font-weight: 600;
+
+    text-decoration: none;
 }
 
 .repo-link:hover {
@@ -659,78 +873,180 @@ h3 {
 }
 
 
-/* ===== WEEK 7 RESPONSIVE REPO GRID ===== */
+/* =========================
+   Education
+========================= */
 
-@media (min-width: 768px) {
-
-    .repo-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+.table-wrapper {
+    overflow-x: auto;
 }
 
-@media (min-width: 1024px) {
+.education-table {
+    width: 100%;
 
-    .repo-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    border-collapse: collapse;
 
+    margin-top: 15px;
 }
 
-/* ===========================
-   Dark Mode
-=========================== */
+.education-table th,
+.education-table td {
+    border: 1px solid var(--border-color);
 
-/* Dark mode toggle */
-.theme-toggle {
-    margin-left: 1rem;
-    padding: 0.5rem 0.8rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    background: #2563eb;
-    color: #ffffff;
-    transition: all 0.3s ease;
+    padding: 12px;
+
+    text-align: left;
+
+    font-size: 1rem;
 }
 
-.theme-toggle:hover {
-    background: #3b82f6;
-    transform: translateY(-1px);
+.education-table th {
+    background-color: var(--primary-color);
+
+    color: white;
 }
 
 
-/* ===========================
-   Main Background
-=========================== */
+/* =========================
+   Contact
+========================= */
+
+.contact-intro {
+    max-width: 650px;
+
+    margin-bottom: 20px;
+}
+
+.links-container {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 15px;
+}
+
+.social-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 44px;
+
+    padding: 12px 20px;
+
+    background-color: var(--accent-color);
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    transition: all 0.25s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+
+    background-color: hsl(200, 85%, 35%);
+
+    color: white;
+
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+    text-align: center;
+
+    margin-top: 50px;
+
+    padding: 25px;
+
+    color: var(--muted-color);
+}
+
+
+/* =========================
+   Empty State
+========================= */
+
+.empty-state {
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    color: var(--muted-color);
+}
+
+
+/* =========================
+   Accessibility
+========================= */
+
+.visually-hidden {
+    position: absolute;
+
+    width: 1px;
+
+    height: 1px;
+
+    padding: 0;
+
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
 
 body.dark-mode {
     background-color: #121826;
+
     color: #e5e7eb;
 }
 
 
-/* ===========================
-   Navigation
-=========================== */
+/* Navigation */
 
 body.dark-mode .navbar {
     background: #182033;
+
     border-bottom: 1px solid #2d3748;
 }
 
+body.dark-mode .logo,
 body.dark-mode .navbar a {
     color: #e5e7eb;
 }
 
-body.dark-mode .navbar a:hover {
+body.dark-mode .navbar a:hover,
+body.dark-mode .logo:hover {
     color: #60a5fa;
 }
 
 
-/* ===========================
-   General Text
-=========================== */
+/* General text */
 
 body.dark-mode h1,
 body.dark-mode h2,
@@ -746,99 +1062,137 @@ body.dark-mode p {
 }
 
 
-/* ===========================
-   Cards
-=========================== */
+/* Hero */
+
+body.dark-mode .hero-title {
+    color: #f8fafc;
+}
+
+body.dark-mode .hero-intro,
+body.dark-mode .hero-role {
+    color: #60a5fa;
+}
+
+body.dark-mode .hero-tagline {
+    color: #cbd5e1;
+}
+
+
+/* Buttons */
+
+body.dark-mode .primary-button {
+    background: #2563eb;
+
+    color: white;
+}
+
+body.dark-mode .primary-button:hover {
+    background: #3b82f6;
+}
+
+body.dark-mode .secondary-button {
+    border-color: #60a5fa;
+
+    color: #93c5fd;
+}
+
+body.dark-mode .secondary-button:hover {
+    background: #2563eb;
+
+    color: white;
+}
+
+
+/* Cards */
 
 body.dark-mode .content-card,
 body.dark-mode .project-card,
 body.dark-mode .repo-card {
     background: #1e293b;
+
     color: #e5e7eb;
+
     border: 1px solid #334155;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 body.dark-mode .content-card:hover,
 body.dark-mode .project-card:hover,
 body.dark-mode .repo-card:hover {
     background: #243247;
+
     border-color: #475569;
-    transform: translateY(-3px);
 }
 
 
-/* ===========================
-   Project Section
-=========================== */
+/* Section headings */
 
-body.dark-mode .project-card h3,
-body.dark-mode .repo-card h3 {
-    color: #f8fafc;
-}
-
-body.dark-mode .project-card p,
-body.dark-mode .repo-card p {
-    color: #cbd5e1;
-}
-
-
-/* ===========================
-   Links
-=========================== */
-
-body.dark-mode a {
+body.dark-mode .section-label {
     color: #60a5fa;
 }
 
-body.dark-mode a:hover {
-    color: #93c5fd;
-}
-
-
-/* ===========================
-   Buttons
-=========================== */
-
-body.dark-mode button {
+body.dark-mode h2,
+body.dark-mode .card-title,
+body.dark-mode .repo-title {
     color: #f8fafc;
 }
 
+
+/* Skills */
+
+body.dark-mode .skills-list li {
+    background: #263449;
+
+    border-left-color: #60a5fa;
+
+    color: #e5e7eb;
+}
+
+
+/* Filters */
+
 body.dark-mode .filter-btn {
     background: #1e293b;
+
     color: #cbd5e1;
-    border: 1px solid #475569;
-    transition: all 0.3s ease;
+
+    border-color: #475569;
 }
 
 body.dark-mode .filter-btn:hover {
     background: #29384d;
-    color: #ffffff;
+
+    color: white;
+
     border-color: #64748b;
 }
 
 body.dark-mode .filter-btn.active {
     background: #2563eb;
-    color: #ffffff;
+
+    color: white;
+
     border-color: #3b82f6;
 }
 
 
-/* ===========================
-   Search
-=========================== */
+/* Search */
 
 body.dark-mode .search-input {
     background: #1e293b;
+
     color: #f8fafc;
-    border: 1px solid #475569;
+
+    border-color: #475569;
 }
 
 body.dark-mode .search-input:focus {
-    outline: none;
     border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+
+    box-shadow:
+        0 0 0 3px rgba(96, 165, 250, 0.15);
 }
 
 body.dark-mode .search-input::placeholder {
@@ -846,113 +1200,244 @@ body.dark-mode .search-input::placeholder {
 }
 
 
-/* ===========================
-   Plus / View More Button
-=========================== */
+/* Project / Repo text */
 
-/* Makes the + button stand out in dark mode */
-body.dark-mode .view-more,
-body.dark-mode .plus-button,
-body.dark-mode .more-btn {
-    background: #2563eb;
-    color: #ffffff;
-    border-color: #3b82f6;
-}
-
-body.dark-mode .view-more:hover,
-body.dark-mode .plus-button:hover,
-body.dark-mode .more-btn:hover {
-    background: #3b82f6;
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-
-/* ===========================
-   Personal Portfolio Section
-=========================== */
-
-body.dark-mode .personal-portfolio,
-body.dark-mode .portfolio-card {
-    background: #1e293b;
-    color: #e5e7eb;
-    border-color: #334155;
-}
-
-body.dark-mode .personal-portfolio h2,
-body.dark-mode .personal-portfolio h3,
-body.dark-mode .portfolio-card h2,
-body.dark-mode .portfolio-card h3 {
-    color: #f8fafc;
-}
-
-body.dark-mode .personal-portfolio p,
-body.dark-mode .portfolio-card p {
+body.dark-mode .card-desc,
+body.dark-mode .repo-description,
+body.dark-mode .repo-stars {
     color: #cbd5e1;
 }
 
-
-/* ===========================
-   Tags / Skills
-=========================== */
-
-body.dark-mode .tag,
-body.dark-mode .skill,
-body.dark-mode .tech-tag {
-    background: #263449;
-    color: #bfdbfe;
-    border-color: #3b4b63;
-}
-
-
-/* ===========================
-   Footer
-=========================== */
-
-body.dark-mode .site-footer {
-    background: #182033;
-    color: #cbd5e1;
-    border-top: 1px solid #2d3748;
-}
-
-body.dark-mode .site-footer a {
+body.dark-mode .card-link,
+body.dark-mode .repo-link {
     color: #60a5fa;
 }
 
-body.dark-mode .site-footer a:hover {
+body.dark-mode .card-link:hover,
+body.dark-mode .repo-link:hover {
     color: #93c5fd;
 }
 
 
-/* ===========================
-   Images / Icons
-=========================== */
+/* Week badges */
 
-body.dark-mode img {
+body.dark-mode .week-badge {
+    background: #263449;
+
+    color: #bfdbfe;
+}
+
+
+/* Education */
+
+body.dark-mode .education-table th {
+    background: #2563eb;
+}
+
+body.dark-mode .education-table td {
+    color: #e5e7eb;
+
+    border-color: #475569;
+}
+
+
+/* Contact */
+
+body.dark-mode .contact-intro {
+    color: #cbd5e1;
+}
+
+
+/* Footer */
+
+body.dark-mode .site-footer {
+    color: #cbd5e1;
+
+    border-top: 1px solid #2d3748;
+}
+
+
+/* Images */
+
+body.dark-mode .profile-image {
     border-color: #334155;
 }
 
 
-/* ===========================
-   Smooth Dark Mode Transition
-=========================== */
+/* =========================
+   Tablet
+========================= */
 
-body,
-.navbar,
-.content-card,
-.project-card,
-.repo-card,
-.filter-btn,
-.search-input,
-.site-footer {
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+@media (min-width: 768px) {
+
+    .navbar-container {
+        flex-direction: row;
+
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        flex-direction: row;
+
+        gap: 20px;
+    }
+
+    .hero-content {
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        text-align: left;
+    }
+
+    .hero-text {
+        text-align: left;
+    }
+
+    .hero-tagline {
+        margin-left: 0;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+
+    .hero-image .profile-image {
+        width: 260px;
+
+        height: 260px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-card:first-child {
+        grid-column: span 2;
+    }
+
+    .repo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-controls {
+        align-items: center;
+    }
+
+    .results-count {
+        width: auto;
+
+        margin-left: auto;
+    }
+
 }
 
 
-.tech-tag.jupyter-notebook {
-    background-color: hsl(230, 60%, 50%);
+/* =========================
+   Desktop
+========================= */
+
+@media (min-width: 1024px) {
+
+    .hero-section {
+        padding-top: 90px;
+
+        padding-bottom: 70px;
+    }
+
+    .hero-image .profile-image {
+        width: 320px;
+
+        height: 320px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-card:first-child {
+        grid-column: span 1;
+    }
+
+    .repo-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skills-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .content-card {
+        padding: 40px;
+    }
+
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 767px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .hero-section {
+        padding-top: 40px;
+
+        margin-bottom: 45px;
+    }
+
+    .hero-title {
+        font-size: clamp(3rem, 15vw, 5rem);
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .hero-button {
+        width: 100%;
+    }
+
+    .project-controls {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-btn {
+        flex: 1;
+    }
+
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .results-count {
+        text-align: center;
+    }
+
+    .card-footer {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .repo-link {
+        margin-left: 0;
+    }
+
 }
